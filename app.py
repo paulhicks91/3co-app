@@ -64,7 +64,7 @@ def queen_beans():
         })
 
     if request.user_agent.browser in BROWSERS:
-        return render_template('solo-leaderboards.jinja2', leaderboard_title='Queen Beans', metric_type='beans',
+        return render_template('solo-leaderboards.jinja2', leaderboard_title='Queen Bean', metric_type='beans',
                                leaderboard_items=leaderboard_items)
     else:
         return jsonify(leaderboard_items)
