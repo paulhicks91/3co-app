@@ -1,0 +1,33 @@
+{% extends "default.jinja2" %}
+{% block title %}{{ leaderboard_title }} Leaderboards{% endblock %}
+{% block content %}
+
+    <h1>{{ leaderboard_title }} Leaderboards</h1>
+
+    <div class="container">
+        {% for leaderboard_item in leaderboard_items %}
+                <div class="content">
+                    <img src="{{ leaderboard_item.map_image }}" alt="{{ leaderboard_item.map_name }}">
+                    <div class="overlay">
+                        <div class="title">{{ leaderboard_item.map_name }}</div>
+                        {% for leaderboard_entry in leaderboard_item.leaderboard_entries %}
+                            {% if loop.index == 1 %}
+                                <div class="hero">
+                                    <div class="star-metric">{{ leaderboard_entry.metric }}</div>
+                                    <div class="player">{{ leaderboard_entry.player }}</div>
+                                    <div class="ts">{{ leaderboard_entry.ts }}</div>
+                                </div>
+                            {% else %}
+                                <div class="sub-stat">
+                                    <div class="star-metric">{{ leaderboard_entry.metric }}</div>
+                                    <div class="player">{{ leaderboard_entry.player }}</div>
+                                    <div class="ts">{{ leaderboard_entry.ts }}</div>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

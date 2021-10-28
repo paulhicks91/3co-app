@@ -1,0 +1,986 @@
+[
+    {
+      "mode": "NULLABLE",
+      "name": "timestampValidated",
+      "type": "BOOLEAN"
+    },
+    {
+      "mode": "NULLABLE",
+      "name": "submittedBy",
+      "type": "STRING"
+    },
+    {
+      "fields": [
+        {
+          "mode": "NULLABLE",
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "fields": [
+            {
+              "mode": "NULLABLE",
+              "name": "win",
+              "type": "INTEGER"
+            },
+            {
+              "mode": "NULLABLE",
+              "name": "loss",
+              "type": "INTEGER"
+            }
+          ],
+          "mode": "NULLABLE",
+          "name": "unrankedRecord",
+          "type": "RECORD"
+        },
+        {
+          "mode": "NULLABLE",
+          "name": "status",
+          "type": "INTEGER"
+        },
+        {
+          "mode": "NULLABLE",
+          "name": "requiredPlacementMatchesString",
+          "type": "INTEGER"
+        },
+        {
+          "mode": "NULLABLE",
+          "name": "requiredPlacementMatches",
+          "type": "FLOAT"
+        },
+        {
+          "mode": "NULLABLE",
+          "name": "rankingAdjustment",
+          "type": "INTEGER"
+        },
+        {
+          "mode": "NULLABLE",
+          "name": "type",
+          "type": "INTEGER"
+        },
+        {
+          "mode": "NULLABLE",
+          "name": "rankInLeague",
+          "type": "INTEGER"
+        },
+        {
+          "mode": "NULLABLE",
+          "name": "previousLeague",
+          "type": "INTEGER"
+        },
+        {
+          "mode": "NULLABLE",
+          "name": "currentNetworkingPreferences",
+          "type": "INTEGER"
+        },
+        {
+          "mode": "NULLABLE",
+          "name": "playerId",
+          "type": "STRING"
+        },
+        {
+          "fields": [
+            {
+              "mode": "NULLABLE",
+              "name": "win",
+              "type": "INTEGER"
+            },
+            {
+              "mode": "NULLABLE",
+              "name": "loss",
+              "type": "INTEGER"
+            }
+          ],
+          "mode": "NULLABLE",
+          "name": "placementRecord",
+          "type": "RECORD"
+        },
+        {
+          "mode": "NULLABLE",
+          "name": "allowFriendsOfFriendsToJoinParty",
+          "type": "BOOLEAN"
+        },
+        {
+          "mode": "NULLABLE",
+          "name": "online",
+          "type": "BOOLEAN"
+        },
+        {
+          "mode": "NULLABLE",
+          "name": "localPlayerCount",
+          "type": "INTEGER"
+        },
+        {
+          "mode": "NULLABLE",
+          "name": "liquidId",
+          "type": "STRING"
+        },
+        {
+          "mode": "NULLABLE",
+          "name": "inParty",
+          "type": "BOOLEAN"
+        },
+        {
+          "mode": "NULLABLE",
+          "name": "highestRankingRating",
+          "type": "FLOAT"
+        },
+        {
+          "fields": [
+            {
+              "mode": "NULLABLE",
+              "name": "volatility",
+              "type": "FLOAT"
+            },
+            {
+              "mode": "NULLABLE",
+              "name": "roundedRating",
+              "type": "INTEGER"
+            },
+            {
+              "mode": "NULLABLE",
+              "name": "rating",
+              "type": "FLOAT"
+            },
+            {
+              "mode": "NULLABLE",
+              "name": "deviation",
+              "type": "FLOAT"
+            }
+          ],
+          "mode": "NULLABLE",
+          "name": "rankedRankingData",
+          "type": "RECORD"
+        },
+        {
+          "mode": "NULLABLE",
+          "name": "defaultAvatar",
+          "type": "INTEGER"
+        },
+        {
+          "description": "bq-datetime",
+          "mode": "NULLABLE",
+          "name": "timeoutExpiration",
+          "type": "TIMESTAMP"
+        },
+        {
+          "mode": "NULLABLE",
+          "name": "liquidFriend",
+          "type": "BOOLEAN"
+        },
+        {
+          "mode": "NULLABLE",
+          "name": "allowFriendsToJoinParty",
+          "type": "BOOLEAN"
+        },
+        {
+          "fields": [
+            {
+              "mode": "NULLABLE",
+              "name": "volatility",
+              "type": "FLOAT"
+            },
+            {
+              "mode": "NULLABLE",
+              "name": "roundedRating",
+              "type": "INTEGER"
+            },
+            {
+              "mode": "NULLABLE",
+              "name": "rating",
+              "type": "FLOAT"
+            },
+            {
+              "mode": "NULLABLE",
+              "name": "deviation",
+              "type": "FLOAT"
+            }
+          ],
+          "mode": "NULLABLE",
+          "name": "unrankedRankingData",
+          "type": "RECORD"
+        },
+        {
+          "fields": [
+            {
+              "mode": "NULLABLE",
+              "name": "test",
+              "type": "STRING"
+            },
+            {
+              "mode": "NULLABLE",
+              "name": "ps4",
+              "type": "STRING"
+            },
+            {
+              "mode": "NULLABLE",
+              "name": "steam",
+              "type": "STRING"
+            },
+            {
+              "mode": "NULLABLE",
+              "name": "xboxone",
+              "type": "STRING"
+            },
+            {
+              "mode": "NULLABLE",
+              "name": "discord",
+              "type": "STRING"
+            },
+            {
+              "mode": "NULLABLE",
+              "name": "nintendo",
+              "type": "STRING"
+            },
+            {
+              "mode": "NULLABLE",
+              "name": "stadia",
+              "type": "STRING"
+            }
+          ],
+          "mode": "NULLABLE",
+          "name": "externalIds",
+          "type": "RECORD"
+        },
+        {
+          "fields": [
+            {
+              "mode": "NULLABLE",
+              "name": "win",
+              "type": "INTEGER"
+            },
+            {
+              "mode": "NULLABLE",
+              "name": "loss",
+              "type": "INTEGER"
+            }
+          ],
+          "mode": "NULLABLE",
+          "name": "rankedRecord",
+          "type": "RECORD"
+        },
+        {
+          "mode": "NULLABLE",
+          "name": "currentLeague",
+          "type": "INTEGER"
+        },
+        {
+          "mode": "NULLABLE",
+          "name": "avatarUrl",
+          "type": "STRING"
+        },
+        {
+          "mode": "REPEATED",
+          "name": "rankedV2Data",
+          "type": "STRING"
+        },
+        {
+          "mode": "NULLABLE",
+          "name": "partyLeader",
+          "type": "BOOLEAN"
+        },
+        {
+          "mode": "NULLABLE",
+          "name": "crossPlayEnabled",
+          "type": "BOOLEAN"
+        },
+        {
+          "mode": "NULLABLE",
+          "name": "displayName",
+          "type": "STRING"
+        },
+        {
+          "mode": "NULLABLE",
+          "name": "allowSpectateCustomMatch",
+          "type": "BOOLEAN"
+        },
+        {
+          "mode": "NULLABLE",
+          "name": "promotionPercentComplete",
+          "type": "FLOAT"
+        },
+        {
+          "mode": "NULLABLE",
+          "name": "combinedId",
+          "type": "STRING"
+        },
+        {
+          "mode": "NULLABLE",
+          "name": "partyCount",
+          "type": "INTEGER"
+        },
+        {
+          "mode": "NULLABLE",
+          "name": "inGame",
+          "type": "BOOLEAN"
+        },
+        {
+          "fields": [
+            {
+              "mode": "NULLABLE",
+              "name": "runnerMinutes",
+              "type": "FLOAT"
+            },
+            {
+              "mode": "NULLABLE",
+              "name": "queenMinutes",
+              "type": "FLOAT"
+            },
+            {
+              "mode": "NULLABLE",
+              "name": "warriorMinutes",
+              "type": "FLOAT"
+            },
+            {
+              "mode": "NULLABLE",
+              "name": "killsAsWarrior",
+              "type": "INTEGER"
+            },
+            {
+              "mode": "NULLABLE",
+              "name": "kills",
+              "type": "INTEGER"
+            },
+            {
+              "mode": "NULLABLE",
+              "name": "killsAsQueen",
+              "type": "INTEGER"
+            },
+            {
+              "mode": "NULLABLE",
+              "name": "snailDistance",
+              "type": "FLOAT"
+            },
+            {
+              "mode": "NULLABLE",
+              "name": "deaths",
+              "type": "INTEGER"
+            },
+            {
+              "mode": "NULLABLE",
+              "name": "berries",
+              "type": "INTEGER"
+            }
+          ],
+          "mode": "NULLABLE",
+          "name": "stats",
+          "type": "RECORD"
+        },
+        {
+          "mode": "NULLABLE",
+          "name": "allowFriendsToJoinCustomMatch",
+          "type": "BOOLEAN"
+        }
+      ],
+      "mode": "REPEATED",
+      "name": "profiles",
+      "type": "RECORD"
+    },
+    {
+      "fields": [
+        {
+          "mode": "NULLABLE",
+          "name": "team",
+          "type": "INTEGER"
+        },
+        {
+          "mode": "NULLABLE",
+          "name": "playerId",
+          "type": "STRING"
+        },
+        {
+          "mode": "NULLABLE",
+          "name": "mostQueenKillsInAMatch",
+          "type": "INTEGER"
+        },
+        {
+          "mode": "NULLABLE",
+          "name": "playerIndex",
+          "type": "INTEGER"
+        },
+        {
+          "mode": "NULLABLE",
+          "name": "mostKillsPerLife",
+          "type": "INTEGER"
+        },
+        {
+          "mode": "NULLABLE",
+          "name": "kills",
+          "type": "INTEGER"
+        },
+        {
+          "mode": "NULLABLE",
+          "name": "inputID",
+          "type": "INTEGER"
+        },
+        {
+          "mode": "NULLABLE",
+          "name": "snailDeaths",
+          "type": "INTEGER"
+        },
+        {
+          "mode": "NULLABLE",
+          "name": "entityType",
+          "type": "INTEGER"
+        },
+        {
+          "mode": "NULLABLE",
+          "name": "nickname",
+          "type": "STRING"
+        },
+        {
+          "mode": "NULLABLE",
+          "name": "glances",
+          "type": "INTEGER"
+        },
+        {
+          "mode": "NULLABLE",
+          "name": "actorNr",
+          "type": "INTEGER"
+        },
+        {
+          "mode": "NULLABLE",
+          "name": "entitySkin",
+          "type": "INTEGER"
+        },
+        {
+          "mode": "NULLABLE",
+          "name": "deaths",
+          "type": "INTEGER"
+        },
+        {
+          "mode": "NULLABLE",
+          "name": "queenKills",
+          "type": "INTEGER"
+        },
+        {
+          "mode": "NULLABLE",
+          "name": "dropped",
+          "type": "BOOLEAN"
+        },
+        {
+          "mode": "NULLABLE",
+          "name": "berryThrowIns",
+          "type": "INTEGER"
+        },
+        {
+          "mode": "NULLABLE",
+          "name": "berries",
+          "type": "INTEGER"
+        },
+        {
+          "mode": "NULLABLE",
+          "name": "snail",
+          "type": "FLOAT"
+        },
+        {
+          "mode": "NULLABLE",
+          "name": "ping",
+          "type": "INTEGER"
+        },
+        {
+          "mode": "NULLABLE",
+          "name": "allBerriesInSingleGame",
+          "type": "BOOLEAN"
+        }
+      ],
+      "mode": "REPEATED",
+      "name": "playerMatchStats",
+      "type": "RECORD"
+    },
+    {
+      "description": "bq-datetime",
+      "mode": "NULLABLE",
+      "name": "matchTimestamp",
+      "type": "TIMESTAMP"
+    },
+    {
+      "mode": "REPEATED",
+      "name": "mapPool",
+      "type": "INTEGER"
+    },
+    {
+      "mode": "NULLABLE",
+      "name": "id",
+      "type": "STRING"
+    },
+    {
+      "fields": [
+        {
+          "fields": [
+            {
+              "mode": "NULLABLE",
+              "name": "time",
+              "type": "FLOAT"
+            },
+            {
+              "mode": "NULLABLE",
+              "name": "count",
+              "type": "INTEGER"
+            },
+            {
+              "mode": "NULLABLE",
+              "name": "_time",
+              "type": "FLOAT"
+            },
+            {
+              "mode": "NULLABLE",
+              "name": "_count",
+              "type": "INTEGER"
+            }
+          ],
+          "mode": "REPEATED",
+          "name": "snailPosition",
+          "type": "RECORD"
+        },
+        {
+          "mode": "NULLABLE",
+          "name": "snailDisengaged",
+          "type": "BOOLEAN"
+        },
+        {
+          "mode": "NULLABLE",
+          "name": "headShotVictory",
+          "type": "BOOLEAN"
+        },
+        {
+          "fields": [
+            {
+              "mode": "NULLABLE",
+              "name": "time",
+              "type": "FLOAT"
+            },
+            {
+              "mode": "NULLABLE",
+              "name": "count",
+              "type": "INTEGER"
+            },
+            {
+              "mode": "NULLABLE",
+              "name": "_time",
+              "type": "FLOAT"
+            },
+            {
+              "mode": "NULLABLE",
+              "name": "_count",
+              "type": "INTEGER"
+            }
+          ],
+          "mode": "REPEATED",
+          "name": "goldWarriorsUp",
+          "type": "RECORD"
+        },
+        {
+          "mode": "NULLABLE",
+          "name": "totalGates",
+          "type": "INTEGER"
+        },
+        {
+          "mode": "NULLABLE",
+          "name": "goldSnailGatePos",
+          "type": "FLOAT"
+        },
+        {
+          "mode": "REPEATED",
+          "name": "goldQueenKillTimes",
+          "type": "FLOAT"
+        },
+        {
+          "fields": [
+            {
+              "mode": "NULLABLE",
+              "name": "time",
+              "type": "FLOAT"
+            },
+            {
+              "mode": "NULLABLE",
+              "name": "count",
+              "type": "INTEGER"
+            },
+            {
+              "mode": "NULLABLE",
+              "name": "_time",
+              "type": "FLOAT"
+            },
+            {
+              "mode": "NULLABLE",
+              "name": "_count",
+              "type": "INTEGER"
+            }
+          ],
+          "mode": "REPEATED",
+          "name": "goldBerryCount",
+          "type": "RECORD"
+        },
+        {
+          "fields": [
+            {
+              "mode": "NULLABLE",
+              "name": "timeAsRed",
+              "type": "FLOAT"
+            },
+            {
+              "mode": "NULLABLE",
+              "name": "id",
+              "type": "INTEGER"
+            },
+            {
+              "mode": "NULLABLE",
+              "name": "_timeAsRed",
+              "type": "FLOAT"
+            },
+            {
+              "mode": "NULLABLE",
+              "name": "timeAsBlue",
+              "type": "FLOAT"
+            },
+            {
+              "mode": "NULLABLE",
+              "name": "_timeAsBlue",
+              "type": "FLOAT"
+            },
+            {
+              "mode": "NULLABLE",
+              "name": "_id",
+              "type": "INTEGER"
+            }
+          ],
+          "mode": "REPEATED",
+          "name": "gateControls",
+          "type": "RECORD"
+        },
+        {
+          "fields": [
+            {
+              "mode": "NULLABLE",
+              "name": "workerDeathCount",
+              "type": "INTEGER"
+            },
+            {
+              "mode": "NULLABLE",
+              "name": "warriorAndQueenDeathCount",
+              "type": "INTEGER"
+            },
+            {
+              "mode": "NULLABLE",
+              "name": "totalWorkerKillCount",
+              "type": "INTEGER"
+            },
+            {
+              "mode": "NULLABLE",
+              "name": "totalSnailDistance",
+              "type": "FLOAT"
+            },
+            {
+              "mode": "NULLABLE",
+              "name": "totalSnailDeaths",
+              "type": "INTEGER"
+            },
+            {
+              "mode": "NULLABLE",
+              "name": "totalQueenKillCount",
+              "type": "INTEGER"
+            },
+            {
+              "mode": "NULLABLE",
+              "name": "totalKillCount",
+              "type": "INTEGER"
+            },
+            {
+              "mode": "NULLABLE",
+              "name": "totalGlanceCount",
+              "type": "INTEGER"
+            },
+            {
+              "mode": "NULLABLE",
+              "name": "totalDeathCount",
+              "type": "INTEGER"
+            },
+            {
+              "mode": "NULLABLE",
+              "name": "entityType",
+              "type": "INTEGER"
+            },
+            {
+              "mode": "NULLABLE",
+              "name": "totalBerryDeposits",
+              "type": "INTEGER"
+            },
+            {
+              "mode": "NULLABLE",
+              "name": "team",
+              "type": "INTEGER"
+            },
+            {
+              "fields": [
+                {
+                  "mode": "NULLABLE",
+                  "name": "y",
+                  "type": "FLOAT"
+                },
+                {
+                  "mode": "NULLABLE",
+                  "name": "x",
+                  "type": "FLOAT"
+                }
+              ],
+              "mode": "NULLABLE",
+              "name": "startingSnailPos",
+              "type": "RECORD"
+            },
+            {
+              "mode": "NULLABLE",
+              "name": "nickname",
+              "type": "STRING"
+            },
+            {
+              "mode": "NULLABLE",
+              "name": "ping",
+              "type": "INTEGER"
+            },
+            {
+              "mode": "NULLABLE",
+              "name": "externalPlayerId",
+              "type": "STRING"
+            },
+            {
+              "mode": "NULLABLE",
+              "name": "playerIndex",
+              "type": "INTEGER"
+            },
+            {
+              "mode": "NULLABLE",
+              "name": "timeSpentAsWarriorSeconds",
+              "type": "FLOAT"
+            },
+            {
+              "mode": "NULLABLE",
+              "name": "totalWarriorKillCount",
+              "type": "INTEGER"
+            },
+            {
+              "mode": "NULLABLE",
+              "name": "actorNr",
+              "type": "INTEGER"
+            },
+            {
+              "mode": "NULLABLE",
+              "name": "currentQueenKillCount",
+              "type": "INTEGER"
+            },
+            {
+              "mode": "NULLABLE",
+              "name": "entitySkin",
+              "type": "INTEGER"
+            },
+            {
+              "mode": "NULLABLE",
+              "name": "currentBerryDeposits",
+              "type": "INTEGER"
+            },
+            {
+              "mode": "NULLABLE",
+              "name": "currentBerryThrowIns",
+              "type": "INTEGER"
+            },
+            {
+              "mode": "NULLABLE",
+              "name": "currentWarriorKillCount",
+              "type": "INTEGER"
+            },
+            {
+              "mode": "NULLABLE",
+              "name": "playerId",
+              "type": "STRING"
+            },
+            {
+              "mode": "NULLABLE",
+              "name": "currentKillCount",
+              "type": "INTEGER"
+            },
+            {
+              "mode": "NULLABLE",
+              "name": "currentWorkerKillCount",
+              "type": "INTEGER"
+            },
+            {
+              "mode": "NULLABLE",
+              "name": "currentGlanceCount",
+              "type": "INTEGER"
+            },
+            {
+              "mode": "NULLABLE",
+              "name": "dropped",
+              "type": "BOOLEAN"
+            },
+            {
+              "mode": "NULLABLE",
+              "name": "mostKillsPerLife",
+              "type": "INTEGER"
+            },
+            {
+              "mode": "NULLABLE",
+              "name": "totalBerryThrowIns",
+              "type": "INTEGER"
+            },
+            {
+              "mode": "NULLABLE",
+              "name": "currentSnailDistance",
+              "type": "FLOAT"
+            },
+            {
+              "mode": "NULLABLE",
+              "name": "inputID",
+              "type": "INTEGER"
+            }
+          ],
+          "mode": "REPEATED",
+          "name": "playerStats",
+          "type": "RECORD"
+        },
+        {
+          "mode": "NULLABLE",
+          "name": "gameMap",
+          "type": "INTEGER"
+        },
+        {
+          "mode": "NULLABLE",
+          "name": "endTime",
+          "type": "FLOAT"
+        },
+        {
+          "mode": "NULLABLE",
+          "name": "startTime",
+          "type": "FLOAT"
+        },
+        {
+          "fields": [
+            {
+              "mode": "NULLABLE",
+              "name": "time",
+              "type": "FLOAT"
+            },
+            {
+              "mode": "NULLABLE",
+              "name": "count",
+              "type": "INTEGER"
+            },
+            {
+              "mode": "NULLABLE",
+              "name": "_time",
+              "type": "FLOAT"
+            },
+            {
+              "mode": "NULLABLE",
+              "name": "_count",
+              "type": "INTEGER"
+            }
+          ],
+          "mode": "REPEATED",
+          "name": "blueBerryCount",
+          "type": "RECORD"
+        },
+        {
+          "mode": "NULLABLE",
+          "name": "currentSnailPos",
+          "type": "FLOAT"
+        },
+        {
+          "fields": [
+            {
+              "mode": "NULLABLE",
+              "name": "time",
+              "type": "FLOAT"
+            },
+            {
+              "mode": "NULLABLE",
+              "name": "count",
+              "type": "INTEGER"
+            },
+            {
+              "mode": "NULLABLE",
+              "name": "_time",
+              "type": "FLOAT"
+            },
+            {
+              "mode": "NULLABLE",
+              "name": "_count",
+              "type": "INTEGER"
+            }
+          ],
+          "mode": "REPEATED",
+          "name": "blueWarriorsUp",
+          "type": "RECORD"
+        },
+        {
+          "mode": "NULLABLE",
+          "name": "gameCancelled",
+          "type": "BOOLEAN"
+        },
+        {
+          "mode": "REPEATED",
+          "name": "blueQueenKillTimes",
+          "type": "FLOAT"
+        },
+        {
+          "mode": "NULLABLE",
+          "name": "snailMidPoint",
+          "type": "FLOAT"
+        },
+        {
+          "mode": "NULLABLE",
+          "name": "duration",
+          "type": "FLOAT"
+        },
+        {
+          "mode": "NULLABLE",
+          "name": "winCondition",
+          "type": "INTEGER"
+        },
+        {
+          "mode": "NULLABLE",
+          "name": "berriesNeeded",
+          "type": "INTEGER"
+        },
+        {
+          "mode": "NULLABLE",
+          "name": "blueSnailGatePos",
+          "type": "FLOAT"
+        }
+      ],
+      "mode": "REPEATED",
+      "name": "games",
+      "type": "RECORD"
+    },
+    {
+      "mode": "REPEATED",
+      "name": "gameWinners",
+      "type": "INTEGER"
+    },
+    {
+      "mode": "REPEATED",
+      "name": "winConditions",
+      "type": "INTEGER"
+    },
+    {
+      "mode": "NULLABLE",
+      "name": "matchType",
+      "type": "INTEGER"
+    },
+    {
+      "mode": "NULLABLE",
+      "name": "filename",
+      "type": "STRING"
+    },
+    {
+      "description": "bq-datetime",
+      "mode": "NULLABLE",
+      "name": "createdTimestamp",
+      "type": "TIMESTAMP"
+    },
+    {
+      "mode": "NULLABLE",
+      "name": "_gameCancelled",
+      "type": "BOOLEAN"
+    }
+  ]
