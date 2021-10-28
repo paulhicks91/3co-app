@@ -1,4 +1,5 @@
 from google.cloud import bigquery, bigquery_datatransfer
+import os
 from datetime import datetime
 import ntpath
 from utils import json_load, parse_timestamp, convert_bool_to_str
@@ -11,10 +12,13 @@ import io
 PROJECT_NAME = 'hot-chee-to'
 DATASET = 'match_stats'
 DEFAULT_SCHEMA_FILE = 'bigquery/schema.json'
+# optional service account file for running locally
 SERVICE_ACCOUNT_JSON = 'bigquery/service-account.json'
 
 
 def create_client(service_account_json_filename: str = SERVICE_ACCOUNT_JSON) -> bigquery.Client:
+    if not os.path.isfile(service_account_json_filename):
+        return bigquery.Client()
     return bigquery.Client.from_service_account_json(service_account_json_filename)
 
 
