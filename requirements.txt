@@ -2,3 +2,4 @@ google-cloud-bigquery-datatransfer
 google-cloud-bigquery
 Flask
 gunicorn
+werkzeug
