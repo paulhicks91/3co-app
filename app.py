@@ -46,15 +46,18 @@ def queen_beans():
     bigquery_client = create_client()
     leaderboard_items = []
     query_results = run_query('bigquery/queries/queen_bean_rankings.sql', bigquery_client)
+
     for row in query_results:
+
         map_name = row['map']
         map_image = re.sub('[^a-z0-9 ]+', '', map_name.lower()).replace(' ', '-') + '.png'
         player_stats = []
         for player_entry in row['player_stats']:
+
             player_stats.append({
                 'metric': player_entry['totalBerryDeposits'],
                 'player': player_entry['nickname'],
-                'ts': player_entry['matchTimestamp']
+                'ts': player_entry['matchTimestamp'].isoformat()
             })
 
         leaderboard_items.append({
