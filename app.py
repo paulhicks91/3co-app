@@ -3,7 +3,7 @@ import os
 from datetime import datetime
 
 from flask import Flask, url_for, render_template, redirect, request, jsonify
-from werkzeug.contrib.fixers import ProxyFix
+from werkzeug.middleware.proxy_fix import ProxyFix
 
 from bigquery import create_client, run_query
 
