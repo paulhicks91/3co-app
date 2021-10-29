@@ -3,11 +3,14 @@ import os
 from datetime import datetime
 
 from flask import Flask, url_for, render_template, redirect, request, jsonify
+from werkzeug.contrib.fixers import ProxyFix
 
 from bigquery import create_client, run_query
 
 
 app = Flask(__name__)
+
+app.wsgi_app = ProxyFix(app.wsgi_app)
 
 # browsers that can be parsed from the UA, doesn't include crawlers
 BROWSERS = [
