@@ -11,6 +11,22 @@ WITH stat_agg AS (
     AND totalBerryDeposits > 0
     AND bot_player != 'Bot'
     GROUP BY 1,2,3
+), new_agg AS (
+    SELECT
+        map,
+        totalBerryDeposits,
+        nickname,
+        matchTimestamp
+    FROM stat_agg
+    RIGHT JOIN (
+        SELECT
+            map,
+            MAX(totalBerryDeposits) AS totalBerryDeposits,
+            nickname
+        FROM stat_agg
+        GROUP BY 1,3
+    ) USING (map, totalBerryDeposits, nickname)
+    WHERE matchTimestamp IS NOT NULL
 )
 
 SELECT
@@ -19,7 +35,7 @@ SELECT
     totalBerryDeposits,
     nickname,
     matchTimestamp) ORDER BY totalBerryDeposits DESC, matchTimestamp, nickname LIMIT 20) AS player_stats
-FROM stat_agg
+FROM new_agg
 GROUP BY 1
 ORDER BY map
 ;
