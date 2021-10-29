@@ -3,7 +3,7 @@ async function convertTimestamps() {
 
     for (let i = 0; i < timestamps.length; i++) {
         let tsDiv = timestamps[i].innerHTML;
-        console.log(tsDiv);
+
         try {
             const tsDate = new Date(tsDiv);
 
