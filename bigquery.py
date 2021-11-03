@@ -1,9 +1,8 @@
-from google.cloud import bigquery, bigquery_datatransfer
+from google.cloud import bigquery
 import os
 from datetime import datetime
 import ntpath
 from utils import json_load, parse_timestamp, convert_bool_to_str
-from logging import Logger
 import uuid
 from json import dumps
 import io

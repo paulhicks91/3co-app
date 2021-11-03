@@ -2,7 +2,7 @@ import re
 import os
 from datetime import datetime
 
-from flask import Flask, url_for, render_template, redirect, request, jsonify
+from flask import Flask, url_for, render_template, request, jsonify
 from werkzeug.middleware.proxy_fix import ProxyFix
 
 from bigquery import create_client, run_query
@@ -19,6 +19,22 @@ BROWSERS = [
 ]
 
 app.jinja_env.globals['current_year'] = datetime.utcnow().year
+app.jinja_env.globals['nav_links'] = [
+        {'name': 'Home', 'url': 'main'},
+        {'name': 'Queen Beans', 'url': 'queen_beans'},
+        {'name': 'Total Set Beans', 'url': 'total_set_beans'},
+    ]
+
+MAP_IMAGES = [
+    'the-black-queens-keep.png',
+    'the-helix-temple.png',
+    'the-nesting-flats.png',
+    'the-pod.png',
+    'the-spire.png',
+    'the-split-juniper.png',
+    'the-tally-fields.png',
+    'the-throne-room.png'
+]
 
 
 @app.route('/favicon.ico')
@@ -38,10 +54,7 @@ def favicon_png():
 
 @app.route('/')
 def main():
-    """
-    redirects to /queen_beans
-    """
-    return redirect(url_for('queen_beans'))
+    return render_template('home.jinja2', title='Home')
 
 
 @app.route('/queen-beans')
@@ -64,14 +77,45 @@ def queen_beans():
             })
 
         leaderboard_items.append({
-            'map_name': map_name,
+            'content_title': map_name,
             'map_image': url_for('static', filename=f'maps/{map_image}'),
             'leaderboard_entries': player_stats
         })
 
     if request.user_agent.browser in BROWSERS:
-        return render_template('solo-leaderboards.jinja2', leaderboard_title='Queen Bean', metric_type='beans',
+        return render_template('solo-leaderboards.jinja2', leaderboard_title='Queen Bean',
                                leaderboard_items=leaderboard_items)
+    else:
+        return jsonify(leaderboard_items)
+
+
+@app.route('/total-set-beans')
+def total_set_beans():
+    bigquery_client = create_client()
+    leaderboard_items = []
+    query_results = run_query('bigquery/queries/ranked_qp_total_set_beans.sql', bigquery_client)
+
+    for i, row in enumerate(query_results):
+
+        n_maps = row['totalMaps']
+        map_image = MAP_IMAGES[i]
+        player_stats = []
+        for player_entry in row['player_stats']:
+            player_stats.append({
+                'metric': player_entry['totalBerryDeposits'],
+                'player': player_entry['nickname'],
+                'ts': player_entry['matchTimestamp'].isoformat()
+            })
+
+        leaderboard_items.append({
+            'content_title': f'{n_maps}-Map Set',
+            'map_image': url_for('static', filename=f'maps/{map_image}'),
+            'leaderboard_entries': player_stats
+        })
+
+    if request.user_agent.browser in BROWSERS:
+        return render_template('solo-leaderboards.jinja2', leaderboard_title='Set Bean Total',
+                               metric_class_modifier='-2', leaderboard_items=leaderboard_items)
     else:
         return jsonify(leaderboard_items)
 
