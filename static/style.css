@@ -20,7 +20,7 @@ a:visited {
 
 h1 {
     font-size: 5em;
-    padding: 0.25em 0;
+    padding: 1em 0;
     margin: 0;
     font-weight: bold;
 }
@@ -33,6 +33,31 @@ body {
 
 #footer {
     font-size: 3em;
+    padding: 3em;
+}
+
+.nav {
+    list-style-type: none;
+    overflow: hidden;
+    font-size: 4em;
+    margin: 0;
+    padding: 0;
+    background-color: aquamarine;
+}
+
+.nav li {
+    float: left;
+}
+
+.nav li a {
+    display: block;
+    padding: 0.25em;
+    text-decoration: none;
+    color: indigo;
+}
+
+.nav li a:hover {
+    background-color: mediumspringgreen;
 }
 
 .container {
@@ -89,12 +114,21 @@ body {
     place-self: center center;
 }
 
-.hero {
+.desc {
+    font-size: 3em;
+    text-align: left;
+    padding: 2em 1em;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero, .hero-2 {
     grid-row: span 2;
     font-size: 1em;
 }
 
-.sub-stat {
+.sub-stat, .sub-stat-2 {
     font-size: 0.6em;
     padding-left: 6.5em;
 }
@@ -112,6 +146,21 @@ body {
     min-width: 0;
     min-height: 0;
 }
+
+.sub-stat-2,
+.hero-2 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 0;
+    text-align: left;
+    place-self: center start;
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+    min-height: 0;
+}
+
 
 .star-metric {
     font-size: 7em;
@@ -183,34 +232,4 @@ body {
         grid-template-columns: 1fr;
         margin: 0;
     }
-}
-
-.nav {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-
-.nav-1 {
-    width: 100%;
-}
-
-.nav-2 {
-    width: 50%;
-}
-
-.nav-3 {
-    width: 33.33%;
-}
-
-.nav-4 {
-    width: 25%;
-}
-
-.nav-5 {
-    width: 20%;
-}
-
-.nav-6 {
-    width: 16.66%;
 }

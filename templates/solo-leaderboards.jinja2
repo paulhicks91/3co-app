@@ -7,18 +7,18 @@
     <div class="container">
         {% for leaderboard_item in leaderboard_items %}
                 <div class="content">
-                    <img src="{{ leaderboard_item.map_image }}" alt="{{ leaderboard_item.map_name }}">
+                    <img src="{{ leaderboard_item.map_image }}" alt="{{ leaderboard_item.content_title }}">
                     <div class="overlay">
-                        <div class="title">{{ leaderboard_item.map_name }}</div>
+                        <div class="title">{{ leaderboard_item.content_title }}</div>
                         {% for leaderboard_entry in leaderboard_item.leaderboard_entries %}
                             {% if loop.index == 1 %}
-                                <div class="hero">
+                                <div class="hero{{ metric_class_modifier }}">
                                     <div class="star-metric">{{ leaderboard_entry.metric }}</div>
                                     <div class="player">{{ leaderboard_entry.player }}</div>
                                     <div class="ts">{{ leaderboard_entry.ts }}</div>
                                 </div>
                             {% else %}
-                                <div class="sub-stat">
+                                <div class="sub-stat{{ metric_class_modifier }}">
                                     <div class="star-metric">{{ leaderboard_entry.metric }}</div>
                                     <div class="player">{{ leaderboard_entry.player }}</div>
                                     <div class="ts">{{ leaderboard_entry.ts }}</div>
