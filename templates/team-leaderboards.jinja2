@@ -1,0 +1,52 @@
+{% extends "default.jinja2" %}
+{% block title %}{{ leaderboard_title }} Leaderboards{% endblock %}
+{% block onload %}convertTimestamps();{% endblock %}
+{% block content %}
+
+    <h1>{{ leaderboard_title }} Leaderboards</h1>
+
+    <div class="container">
+        {% for leaderboard_item in leaderboard_items %}
+            <div class="content">
+                <img src="{{ leaderboard_item.map_image }}" alt="{{ leaderboard_item.content_title }}">
+                <div class="overlay-team">
+                    <div class="title-team">{{ leaderboard_item.content_title }}</div>
+                    {% for leaderboard_entry in leaderboard_item.leaderboard_entries %}
+                        {% if loop.index == 1 %}
+                            <div class="hero-team{{ metric_class_modifier }}">
+                                <div class="star-metric-team">{{ leaderboard_entry.metric }}</div>
+                                <div class="ts-team">{{ leaderboard_entry.ts }}</div>
+                                {% for team_player in leaderboard_entry.players %}
+                                    <div class="team role-team">{{ team_player.role }}</div>
+                                    {% if team_player.individual_metric %}
+                                        <div class="team individual-metric-team">
+                                            {{ team_player.individual_metric }}
+                                        </div>
+                                    {% endif %}
+                                    <div class="team player-team">{{ team_player.player }}</div>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            <div class="sub-stat-team{{ metric_class_modifier }}">
+                                <div class="star-metric-team">{{ leaderboard_entry.metric }}</div>
+                                <div class="ts-team">{{ leaderboard_entry.ts }}</div>
+                                {% for team_player in leaderboard_entry.players %}
+                                    <div class="team role-team">{{ team_player.role }}</div>
+                                    {% if team_player.individual_metric %}
+                                        <div class="team individual-metric-team">
+                                            {{ team_player.individual_metric }}
+                                        </div>
+                                    {% endif %}
+                                    <div class="team player-team">{{ team_player.player }}</div>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <script type="text/javascript" src={{ url_for('static', filename='script.js') }}></script>
+
+{% endblock %}

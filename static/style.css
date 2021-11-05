@@ -51,7 +51,7 @@ body {
 
 .nav li a {
     display: block;
-    padding: 0.25em;
+    padding: 0.25em 0.5em;
     text-decoration: none;
     color: indigo;
 }
@@ -80,7 +80,6 @@ body {
 }
 
 .content img {
-    border-radius: 0.25vw;
     object-fit: cover;
     align-self: center;
     filter: brightness(40%) grayscale(40%);
@@ -96,7 +95,17 @@ body {
     z-index: 2;
 }
 
+.content .overlay-team {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(21, 1fr);
+    font-size: 1.3em;
+    text-shadow: 0 0 0.75em black, 0 0 0.75em black, 0 0 1.5em black, 0 0 0.25em blue, 0 0 0.25em purple;
+    z-index: 2;
+}
+
 .content .overlay,
+.content .overlay-team,
 .content img {
     grid-column: 1/2;
     grid-row: 1/2;
@@ -114,6 +123,15 @@ body {
     place-self: center center;
 }
 
+.title-team {
+    grid-row: span 1;
+    font-size: 3.5em;
+    padding: 0;
+    font-weight: bold;
+    text-align: center;
+    place-self: center center;
+}
+
 .desc {
     font-size: 3em;
     text-align: left;
@@ -128,9 +146,18 @@ body {
     font-size: 1em;
 }
 
+.hero-team {
+    color: lightgreen;
+    font-weight: bold;
+}
+
 .sub-stat, .sub-stat-2 {
     font-size: 0.6em;
     padding-left: 6.5em;
+}
+
+.sub-stat-team, .hero-team {
+    font-size: 0.6em;
 }
 
 .sub-stat,
@@ -161,6 +188,17 @@ body {
     min-height: 0;
 }
 
+.sub-stat-team,
+.hero-team {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    gap: 0;
+    text-align: left;
+    place-self: start start;
+    width: 100%;
+    min-width: 0;
+}
 
 .star-metric {
     font-size: 7em;
@@ -180,7 +218,7 @@ body {
     line-height: 1.5em;
     padding-right: 0.3em;
     padding-bottom: 0.1em;
-    grid-column: 2/6;
+    grid-column: 2/-1;
     grid-row: 1/3;
     overflow: hidden;
     white-space: nowrap;
@@ -195,11 +233,64 @@ body {
     line-height: 0.4em;
     padding-left: 0.35em;
     padding-top: 0.1em;
-    grid-column: 2/6;
+    grid-column: 2/-1;
     grid-row: 3/4;
     place-self: start start;
     min-width: 0;
     min-height: 0;
+}
+
+.star-metric-team {
+    font-size: 6em;
+    line-height: 1.5em;
+    padding-right: 0.1em;
+    grid-column: 1/3;
+    grid-row: 1/3;
+    font-weight: bold;
+    text-align: left;
+    place-self: end center;
+    min-width: 0;
+}
+
+.team {
+    font-size: 2.5em;
+    line-height: 1em;
+    padding-right: 0.2em;
+    padding-top: 0.1em;
+    grid-row: span 1;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    place-self: start start;
+}
+
+.role-team {
+    grid-column: span 1;
+    min-width: 0;
+    padding-left: 3em;
+}
+
+.individual-metric-team {
+    grid-column: span 1;
+    min-width: 0;
+    padding-left: 0;
+    place-self: start end;
+}
+
+.player-team {
+    grid-column: 3 / -1;
+    padding-left: 1em;
+    min-width: 0;
+}
+
+.ts-team {
+    font-size: 3em;
+    line-height: 1em;
+    grid-column: 3/-1;
+    grid-row: 1/3;
+    padding-left: 0.5em;
+    place-self: center start;
+    min-width: 0;
 }
 
 @media screen and (max-width: 1312px) {
@@ -225,6 +316,17 @@ body {
 @media screen and (max-width: 688px) {
     body {
         font-size: 1.7em;
+    }
+
+    .nav li {
+        width: 100%;
+    }
+
+    .content,
+    .content .overlay,
+    .content .overlay-team,
+    .content img {
+        border-radius: 0;
     }
 
     .container {
