@@ -1,5 +1,5 @@
 async function convertTimestamps() {
-    const timestamps = document.getElementsByClassName('ts');
+    const timestamps = document.querySelectorAll('.ts,.ts-team');
 
     for (let i = 0; i < timestamps.length; i++) {
         let tsDiv = timestamps[i].innerHTML;
