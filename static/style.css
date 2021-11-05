@@ -79,7 +79,10 @@ body {
     padding: 0;
 }
 
-.content img {
+.content img,
+.content picture,
+.content picture img,
+.content picture source {
     object-fit: cover;
     align-self: center;
     filter: brightness(40%) grayscale(40%);
@@ -106,7 +109,10 @@ body {
 
 .content .overlay,
 .content .overlay-team,
-.content img {
+.content img,
+.content picture,
+.content picture img,
+.content picture source {
     grid-column: 1/2;
     grid-row: 1/2;
     border-radius: 0.5vw;
@@ -322,10 +328,12 @@ body {
         width: 100%;
     }
 
-    .content,
     .content .overlay,
     .content .overlay-team,
-    .content img {
+    .content img,
+    .content picture,
+    .content picture img,
+    .content picture source {
         border-radius: 0;
     }
 

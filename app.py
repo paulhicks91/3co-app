@@ -67,6 +67,7 @@ def queen_beans():
 
         map_name = row['map']
         map_image = re.sub('[^a-z0-9 ]+', '', map_name.lower()).replace(' ', '-') + '.png'
+        webp = map_image.replace('.png', '.webp')
         player_stats = []
         for player_entry in row['player_stats']:
             player_stats.append({
@@ -78,6 +79,7 @@ def queen_beans():
         leaderboard_items.append({
             'content_title': map_name,
             'map_image': url_for('static', filename=f'maps/{map_image}'),
+            'webp': url_for('static', filename=f'maps/{webp}'),
             'leaderboard_entries': player_stats
         })
 
@@ -98,6 +100,7 @@ def fastest_eco_qp_ranked():
 
         map_name = row['map']
         map_image = re.sub('[^a-z0-9 ]+', '', map_name.lower()).replace(' ', '-') + '.png'
+        webp = map_image.replace('.png', '.webp')
         player_stats = []
         for match_entry in row['match_stats']:
             ind_player_stats = []
@@ -122,6 +125,7 @@ def fastest_eco_qp_ranked():
             {
                 'content_title': map_name,
                 'map_image': url_for('static', filename=f'maps/{map_image}'),
+                'webp': url_for('static', filename=f'maps/{webp}'),
                 'leaderboard_entries': player_stats
             }
         )
@@ -143,6 +147,7 @@ def total_set_beans():
 
         n_maps = row['totalMaps']
         map_image = MAP_IMAGES[i]
+        webp = map_image.replace('.png', '.webp')
         player_stats = []
         for player_entry in row['player_stats']:
             player_stats.append({
@@ -154,6 +159,7 @@ def total_set_beans():
         leaderboard_items.append({
             'content_title': f'{n_maps}-Map Set',
             'map_image': url_for('static', filename=f'maps/{map_image}'),
+            'webp': url_for('static', filename=f'maps/{webp}'),
             'leaderboard_entries': player_stats
         })
 
