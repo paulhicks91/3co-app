@@ -11,11 +11,11 @@ html {
 }
 
 a:link {
-    color: mediumorchid;
+    color: hotpink;
 }
 
 a:visited {
-    color: mediumpurple;
+    color: orchid;
 }
 
 h1 {
@@ -158,8 +158,8 @@ body {
 }
 
 .sub-stat, .sub-stat-2 {
-    font-size: 0.6em;
-    padding-left: 6.5em;
+    font-size: 0.75em;
+    padding-left: 2em;
 }
 
 .sub-stat-team, .hero-team {
@@ -259,7 +259,7 @@ body {
 }
 
 .team {
-    font-size: 2.5em;
+    font-size: 3.1em;
     line-height: 1em;
     padding-right: 0.2em;
     padding-top: 0.1em;
@@ -273,7 +273,7 @@ body {
 .role-team {
     grid-column: span 1;
     min-width: 0;
-    padding-left: 3em;
+    padding-left: 1.5em;
 }
 
 .individual-metric-team {
