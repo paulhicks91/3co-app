@@ -1,9 +1,14 @@
 {% extends "default.jinja2" %}
+
 {% block title %}{{ leaderboard_title }} Leaderboards{% endblock %}
+
 {% block onload %}convertTimestamps();{% endblock %}
+
 {% block content %}
 
     <h1>{{ leaderboard_title }} Leaderboards</h1>
+
+    <div class="desc">{{ desc }}</div>
 
     <div class="container">
         {% for leaderboard_item in leaderboard_items %}
