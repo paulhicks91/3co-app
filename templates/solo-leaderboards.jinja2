@@ -1,5 +1,7 @@
 {% extends "default.jinja2" %}
 
+{% block short_desc %}{{ short_desc }}{% endblock %}
+
 {% block title %}{{ leaderboard_title }} Leaderboards{% endblock %}
 
 {% block onload %}convertTimestamps();{% endblock %}

@@ -65,6 +65,10 @@ def queen_beans():
     bigquery_client = create_client()
     leaderboard_items = []
     query_results = run_query('bigquery/queries/queen_bean_rankings.sql', bigquery_client)
+    short_desc = 'Leaderboards for the most queen beans by a single player in a single map'
+    desc = 'A Queen Bean is a berry that is knocked in by a queen. VV rare and VV hard to do.<br>' \
+            'These are the people with the most queen beans in a single map.<br>' \
+            'The stats are only from Quick Play or Ranked and do not include Customs or Locals.'
 
     for row in query_results:
 
@@ -87,8 +91,8 @@ def queen_beans():
         })
 
     if request.user_agent.browser in BROWSERS:
-        return render_template('solo-leaderboards.jinja2', leaderboard_title='Queen Bean',
-                               leaderboard_items=leaderboard_items)
+        return render_template('solo-leaderboards.jinja2', leaderboard_title='Queen Bean', short_desc=short_desc,
+                               desc=desc, leaderboard_items=leaderboard_items)
     else:
         return jsonify(leaderboard_items)
 
@@ -98,6 +102,9 @@ def fastest_eco_qp_ranked():
     bigquery_client = create_client()
     leaderboard_items = []
     query_results = run_query('bigquery/queries/ranked_qp_fastest_eco.sql', bigquery_client)
+    short_desc = 'Leaderboards for the teams with the fastest economic victories for a single map'
+    desc = 'These are the teams with the fastest economic victories for a single map.<br>' \
+           'The stats are only from Quick Play or Ranked and do not include Customs or Locals.'
 
     for row in query_results:
 
@@ -134,8 +141,8 @@ def fastest_eco_qp_ranked():
         )
 
     if request.user_agent.browser in BROWSERS:
-        return render_template('team-leaderboards.jinja2', leaderboard_title='Fastest Eco - QP/Ranked',
-                               leaderboard_items=leaderboard_items)
+        return render_template('team-leaderboards.jinja2', leaderboard_title='Fastest Eco - QP/Ranked', desc=desc,
+                               short_desc=short_desc, leaderboard_items=leaderboard_items)
     else:
         return jsonify(leaderboard_items)
 
@@ -145,6 +152,12 @@ def total_set_beans():
     bigquery_client = create_client()
     leaderboard_items = []
     query_results = run_query('bigquery/queries/ranked_qp_total_set_beans.sql', bigquery_client)
+    short_desc = 'Leaderboards for most beans in a single set by a single player'
+    desc = 'These are the stats for the most beans by a single player in a single set.<br>' \
+           'It is broken out by number of maps in a set (3, 4 or 5) because 32 beans in a 3-map set is much ' \
+           'harder to accomplish than 32 beans in a 5-map set.<br>Theoretical max beans are as follows: ' \
+           '36 beans for a 3-map set, 47 beans for a 4-map set and 58 for a 5-map set.<br>' \
+           'The stats are only from Quick Play or Ranked and do not include Customs or Locals.'
 
     for i, row in enumerate(query_results):
 
@@ -167,8 +180,8 @@ def total_set_beans():
         })
 
     if request.user_agent.browser in BROWSERS:
-        return render_template('solo-leaderboards.jinja2', leaderboard_title='Set Bean Total',
-                               metric_class_modifier='-2', leaderboard_items=leaderboard_items)
+        return render_template('solo-leaderboards.jinja2', leaderboard_title='Set Bean Total', desc=desc,
+                               metric_class_modifier='-2', short_desc=short_desc, leaderboard_items=leaderboard_items)
     else:
         return jsonify(leaderboard_items)
 

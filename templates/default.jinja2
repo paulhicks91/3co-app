@@ -3,23 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href={{ url_for('static', filename='style.css') }} />
+    <meta name="description"
+          content={% block short_desc %}"3co.app delivers the Killer Queen Black stats that the community craves."{% endblock %}>
+    <link rel="stylesheet" href={{ url_for('static', filename='style.css') }}/>
     <title>{% block title %}{% endblock %} - 3co.app</title>
 
     <link rel="icon" href="{{ url_for('static', filename='favicon.svg') }}" type="image/svg+xml">
     <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='apple-touch-icon.png') }}">
     <link rel="icon" href="{{ url_for('static', filename='favicon.png') }}">
     <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Varta:wght@300;400&display=swap" rel="stylesheet">
     {% block head %}{% endblock %}
 </head>
 <body onload="{% block onload %}{% endblock %}">
 {% include 'nav.jinja2' %}
+
 <div id="content">{% block content %}{% endblock %}</div>
 <div id="footer">
+    {% include 'disclaimer.jinja2' %}
     {% block footer %}
         {{ current_year }} <a href="{{ url_for('main') }}">3co.app</a>
     {% endblock %}
