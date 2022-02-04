@@ -1,5 +1,5 @@
 async function getFiles() {
-    const file_input = document.getElementById("myFile");
+    const file_input = document.getElementById("fileUpload");
     if ('files' in file_input && !!file_input.files.length) {
         if (!file_input.files.length) {
             return []
@@ -16,7 +16,7 @@ async function getFiles() {
     return null;
 }
 
-async function myFunction() {
+async function uploadFile() {
     document.getElementById('players').innerHTML = "";
     let playerTxt;
     let filename;
@@ -54,7 +54,7 @@ async function myFunction() {
                     }
                 }
 
-                if (totalPlayers >= 200) {
+                if (totalPlayers >= 300) {
                     break;
                 }
             }
