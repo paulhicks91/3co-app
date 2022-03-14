@@ -2,16 +2,15 @@ import json
 from datetime import datetime, timezone
 import ntpath
 from os import mkdir, walk, listdir, remove
-from os.path import join, isdir, isfile
+from os.path import isdir, isfile
 import pathlib
 from os.path import sep as os_sep
 from shutil import copy2
-from typing import Union, List, TextIO, Tuple, Set, NamedTuple, FrozenSet, MutableSet, AbstractSet, Dict, DefaultDict,\
-    OrderedDict, Optional
+from typing import Union, List, Tuple, Set, FrozenSet, MutableSet, AbstractSet, Dict, DefaultDict, OrderedDict, Optional
 
 
-ListTypeTuple = (List, Tuple, Set, NamedTuple, FrozenSet, MutableSet, AbstractSet)
-ListStrTypeTuple = (List, Tuple, Set, NamedTuple, FrozenSet, MutableSet, AbstractSet, str)
+ListTypeTuple = (List, Tuple, Set, FrozenSet, MutableSet, AbstractSet)
+ListStrTypeTuple = (List, Tuple, Set, FrozenSet, MutableSet, AbstractSet, str)
 DictTypeTuple = (Dict, DefaultDict, OrderedDict)
 
 
@@ -51,7 +50,7 @@ def parse_timestamp(filename: str) -> Union[Tuple[datetime, str], Tuple[datetime
         # it's in seconds since EPOCH and if the filename time is the same then that means both are UTC
         if file_timedelta < 2.5:
             return filename_timestamp, 'utc'
-        # add 2.5 to the to the timestamp then get the remainder after dividing by 1h in seconds (3600) to see if
+        # add 2.5 to the timestamp then get the remainder after dividing by 1h in seconds (3600) to see if
         # the offset is almost exactly to the hour then see exactly how many hours it is off
         # if it's between 4 and 10 hours off that means 1 is probably UTC and the other is a US timezone
         # I'll then take the file_last_modified_timestamp because that's the one that's probably UTC
