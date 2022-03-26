@@ -1,7 +1,7 @@
 @font-face {
     font-family: 'Varta';
     src: url('/static/fonts/Varta-Regular.woff2') format('woff2'),
-        url('/static/fonts/Varta-Regular.woff') format('woff');
+    url('/static/fonts/Varta-Regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -10,7 +10,7 @@
 @font-face {
     font-family: 'Varta';
     src: url('/static/fonts/Varta-Bold.woff2') format('woff2'),
-        url('/static/fonts/Varta-Bold.woff') format('woff');
+    url('/static/fonts/Varta-Bold.woff') format('woff');
     font-weight: bold;
     font-style: normal;
     font-display: swap;
@@ -19,7 +19,7 @@
 @font-face {
     font-family: 'Varta';
     src: url('/static/fonts/Varta-Light.woff2') format('woff2'),
-        url('/static/fonts/Varta-Light.woff') format('woff');
+    url('/static/fonts/Varta-Light.woff') format('woff');
     font-weight: 300;
     font-style: normal;
     font-display: swap;
@@ -335,6 +335,12 @@ body {
     min-width: 0;
 }
 
+.yt-player {
+    width: 64vw;
+    height: 36vw;
+    place-self: center;
+}
+
 @media screen and (max-width: 1312px) {
     body {
         font-size: 0.6em;
@@ -362,6 +368,11 @@ body {
 
     .nav li {
         width: 100%;
+    }
+
+    .yt-player {
+        width: 96vw;
+        height: 54vw;
     }
 
     .content .overlay,

@@ -2,11 +2,11 @@ import re
 import os
 from datetime import datetime
 
-from flask import Flask, url_for, render_template, request, jsonify
+from flask import Flask, url_for, render_template, request, jsonify, redirect
 from werkzeug.middleware.proxy_fix import ProxyFix
 from flask_compress import Compress
 
-from bigquery import create_client, run_query
+from bigquery import create_bigquery_client, run_query
 
 app = Flask(__name__)
 
@@ -26,6 +26,7 @@ app.jinja_env.globals['nav_links'] = [
     {'name': 'Queen Beans', 'url': 'queen_beans'},
     {'name': 'Total Set Beans', 'url': 'total_set_beans'},
     {'name': 'Fastest Eco - QP/Ranked', 'url': 'fastest_eco_qp_ranked'},
+    {'name': 'Lurk Bot - BETA', 'url': 'lurk'},
 ]
 
 MAP_IMAGES = [
@@ -62,13 +63,13 @@ def main():
 
 @app.route('/queen-beans')
 def queen_beans():
-    bigquery_client = create_client()
+    bigquery_client = create_bigquery_client()
     leaderboard_items = []
     query_results = run_query('bigquery/queries/queen_bean_rankings.sql', bigquery_client)
     short_desc = 'Leaderboards for the most queen beans by a single player in a single map'
     desc = 'A Queen Bean is a berry that is knocked in by a queen. VV rare and VV hard to do.<br>' \
-            'These are the people with the most queen beans in a single map.<br>' \
-            'The stats are only from Quick Play or Ranked and do not include Customs or Locals.'
+           'These are the people with the most queen beans in a single map.<br>' \
+           'The stats are only from Quick Play or Ranked and do not include Customs or Locals.'
 
     for row in query_results:
 
@@ -99,7 +100,7 @@ def queen_beans():
 
 @app.route('/fastest-eco-qp-ranked')
 def fastest_eco_qp_ranked():
-    bigquery_client = create_client()
+    bigquery_client = create_bigquery_client()
     leaderboard_items = []
     query_results = run_query('bigquery/queries/ranked_qp_fastest_eco.sql', bigquery_client)
     short_desc = 'Leaderboards for the teams with the fastest economic victories for a single map'
@@ -147,9 +148,30 @@ def fastest_eco_qp_ranked():
         return jsonify(leaderboard_items)
 
 
+@app.route('/lurk', methods=['GET', 'POST'])
+def lurk():
+    bigquery_client = create_bigquery_client()
+    if request.method == 'GET':
+        lurk_queue = run_query('bigquery/queries/get_lurk_key.sql', bigquery_client)
+        for row in lurk_queue:
+            if lurk_key := row['lurk_key']:
+                return render_template('lurk.jinja2', lurk_key=lurk_key)
+        return render_template('lurk.jinja2', lurk_key='')
+    if request.method == 'POST':
+        lurk_key = request.form['lurk-key'].upper()
+        bigquery_client.query(f'INSERT hot-chee-to.match_stats.lurk_queue (lurk_key) VALUES(\'{lurk_key}\')')
+        return redirect(url_for('lurk_active', lurk_key=lurk_key))
+
+
+@app.route('/lurk/<lurk_key>')
+def lurk_active(lurk_key):
+    if re.match('^[a-zA-Z]{6}$', lurk_key):
+        return render_template('lurking.jinja2', lurk_key=lurk_key.upper())
+
+
 @app.route('/total-set-beans')
 def total_set_beans():
-    bigquery_client = create_client()
+    bigquery_client = create_bigquery_client()
     leaderboard_items = []
     query_results = run_query('bigquery/queries/ranked_qp_total_set_beans.sql', bigquery_client)
     short_desc = 'Leaderboards for most beans in a single set by a single player'
