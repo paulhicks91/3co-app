@@ -1,0 +1,62 @@
+{% extends "default.jinja2" %}
+
+{% block title %}Lurk Bot BETA{% endblock %}
+
+{% block content %}
+    <h1>Lurk Bot BETA (bleep bloop)</h1>
+
+    <div class="desc">
+        <p>Welcome to Lurk Bot, it's currently in beta so please have some patience! Thanks!</p>
+        <p>How does one use this guy?</p>
+        <ol>
+            <li>Start a Custom Match
+                <ol>
+                    <li>From the Lobby (Main Screen) select 'Online'</li>
+                    <li>In the 'Online' menu select 'Custom Match'</li>
+                    <li>In the 'Custom Match' menu select 'Create Match'</li>
+                </ol>
+            </li>
+            <li>Get your 'Spectate Key'
+                <ol>
+                    <li>Open 'Match Settings'
+                        <ul>
+                            <li>Most controllers (Xbox, etc.): Press 'Back' Button</li>
+                            <li>Switch controllers: Press '-' Button</li>
+                            <li>PC Keyboard/Mouse: Click 'Match Settings' button at bottom left of screen</li>
+                        </ul>
+                    </li>
+                    <li>Navigate to 'Privacy Settings'
+                        <ul>
+                            <li>On controllers click 'Right Bumper' ('R', 'RB', 'R1', etc.) twice</li>
+                            <li>PC Keyboard/Mouse: Click 'Privacy Settings' button at top of screen</li>
+                        </ul>
+                    </li>
+                    <li>Make sure 'Spectate' is selected and the 6-letter 'Spectate Key' will appear</li>
+                </ol>
+            </li>
+            <li>Enter your 'Spectate Key' in the text box below, press the 'Lurk!' button and Lurk Bot will start
+                spectating your match!
+            </li>
+        </ol>
+        <p>It will take up to 2 minutes from the time that Lurk Bot receives your code to navigate to your match,
+            this is because Lurk Bot needs to load up KQB, connect to the KQB servers and navigate to your match.</p>
+        <p>To prevent getting booted due to inactivity, it is advised that you submit your 'Spectate Key' immediately
+            after creating the match, click 'Start Match', then back out</p>
+        <p>This will reset the time-out and give Lurk Bot enough time to get to your match</p>
+        <p><strong>Right now there is a 90m Lurk Limit, this is to ensure that all players have a chance to use Lurk Bot
+            if they'd like</strong></p>
+        <p>If the 90m are up and there are no other Lurk Requests then Lurk Bot will continue Lurking, but it will stop
+            as soon as there's a new request.</p>
+        {% if not lurk_key %}
+            <form action="/lurk" method="post">
+                <label for="lurk-key">Enter your Spectate Key</label>
+                <input name="lurk-key" id="lurk-key" placeholder="e.g. XXXXXX" pattern="^[a-zA-Z]{6}$">
+                <button>Lurk Now!</button>
+            </form>
+        {% else %}
+            <p><strong>Lurk Bot currently unavailable, currently Lurking <a
+                    href="{{ url_for('lurk_active', lurk_key=lurk_key) }}">{{ lurk_key.upper() }}</a></strong></p>
+        {% endif %}
+    </div>
+
+{% endblock %}

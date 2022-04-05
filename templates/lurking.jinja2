@@ -1,0 +1,27 @@
+{% extends "default.jinja2" %}
+
+{% block title %}Lurk Bot BETA - {{ lurk_key }}{% endblock %}
+
+{% block content %}
+    <h1>Lurk Bot BETA (bleep bloop) - Currently Lurking {{ lurk_key }}</h1>
+
+    <div class="desc">
+        <p>Welcome to Lurk Bot, it's currently in beta so please have some patience! Thanks!</p>
+        <p>Lurk Bot is currently lurking your match using spectate code {{ lurk_key }}</p>
+        <p>It will take up to 2 minutes from the time that Lurk Bot receives your code to navigate to your match,
+            this is because Lurk Bot needs to load up KQB, connect to the KQB servers and navigate to your match.</p>
+        <p>To prevent getting booted due to inactivity, it is advised that you submit your 'Spectate Key' immediately
+            after creating the match, go back to the match, click 'Start Match', then back out</p>
+        <p>This will reset the time-out and give Lurk Bot enough time to get to your match</p>
+        <p><strong>Right now there is a 90m Lurk Limit, this is to ensure that all players have a chance to use Lurk Bot
+            if they'd like</strong></p>
+        <p>If the 90m are up and there are no other Lurk Requests then Lurk Bot will continue Lurking, but it will stop
+            as soon as there's a new request.</p>
+        <iframe class="yt-player"
+                src="https://www.youtube-nocookie.com/embed/live_stream?channel=UC7_8OaxZdxpa0io80Aj8Htg"
+                title="YouTube video player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+    </div>
+
+{% endblock %}

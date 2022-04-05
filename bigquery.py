@@ -1,4 +1,4 @@
-from google.cloud import bigquery
+from google.cloud import bigquery, pubsub_v1
 import os
 from datetime import datetime
 import ntpath
@@ -15,8 +15,20 @@ DEFAULT_SCHEMA_FILE = 'bigquery/schema.json'
 SERVICE_ACCOUNT_JSON = 'bigquery/service-account.json'
 
 
-def create_client(service_account_json_filename: str = SERVICE_ACCOUNT_JSON) -> bigquery.Client:
+def create_pubsub_client(service_account_json_filename: str = SERVICE_ACCOUNT_JSON, publisher: bool = True):
     if not os.path.isfile(service_account_json_filename):
+        if publisher:
+            return pubsub_v1.PublisherClient()
+        return pubsub_v1.SubscriberClient()
+    else:
+        if publisher:
+            return pubsub_v1.PublisherClient.from_service_account_json(service_account_json_filename)
+        return pubsub_v1.SubscriberClient.from_service_account_json(service_account_json_filename)
+
+
+def create_bigquery_client(service_account_json_filename: str = SERVICE_ACCOUNT_JSON) -> bigquery.Client:
+    if not os.path.isfile(service_account_json_filename):
+        print(f'file {service_account_json_filename} does not exist {os.getcwd()}')
         return bigquery.Client()
     return bigquery.Client.from_service_account_json(service_account_json_filename)
 
