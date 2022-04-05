@@ -26,7 +26,7 @@ app.jinja_env.globals['nav_links'] = [
     {'name': 'Queen Beans', 'url': 'queen_beans'},
     {'name': 'Total Set Beans', 'url': 'total_set_beans'},
     {'name': 'Fastest Eco - QP/Ranked', 'url': 'fastest_eco_qp_ranked'},
-    {'name': 'Lurk Bot - BETA', 'url': 'lurk'},
+    # {'name': 'Lurk Bot - BETA', 'url': 'lurk'},
 ]
 
 MAP_IMAGES = [
