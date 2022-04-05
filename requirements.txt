@@ -1,7 +1,7 @@
 google-cloud-bigquery-datatransfer
 google-cloud-bigquery
 google-cloud-pubsub
-Flask
+Flask==2.0.3
 gunicorn
-werkzeug
+werkzeug==2.0.3
 flask-compress
