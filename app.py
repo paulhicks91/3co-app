@@ -90,12 +90,12 @@ def queen_beans():
             'webp': url_for('static', filename=f'maps/{webp}'),
             'leaderboard_entries': player_stats
         })
-
+    print(request.user_agent.string)
     if request.user_agent.browser in BROWSERS:
         return render_template('solo-leaderboards.jinja2', leaderboard_title='Queen Bean', short_desc=short_desc,
                                desc=desc, leaderboard_items=leaderboard_items)
     else:
-        leaderboard_items.append({'browser': request.user_agent.browser})
+        leaderboard_items.append({'browser': request.user_agent.string})
         return jsonify(leaderboard_items)
 
 
@@ -146,7 +146,7 @@ def fastest_eco_qp_ranked():
         return render_template('team-leaderboards.jinja2', leaderboard_title='Fastest Eco - QP/Ranked', desc=desc,
                                short_desc=short_desc, leaderboard_items=leaderboard_items)
     else:
-        leaderboard_items.append({'browser': request.user_agent.browser})
+        leaderboard_items.append({'browser': request.user_agent.string})
         return jsonify(leaderboard_items)
 
 
@@ -207,7 +207,7 @@ def total_set_beans():
         return render_template('solo-leaderboards.jinja2', leaderboard_title='Set Bean Total', desc=desc,
                                metric_class_modifier='-2', short_desc=short_desc, leaderboard_items=leaderboard_items)
     else:
-        leaderboard_items.append({'browser': request.user_agent.browser})
+        leaderboard_items.append({'browser': request.user_agent.string})
         return jsonify(leaderboard_items)
 
 
