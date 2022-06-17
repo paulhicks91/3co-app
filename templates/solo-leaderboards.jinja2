@@ -29,13 +29,13 @@
                         {% if loop.index == 1 %}
                             <div class="hero{{ metric_class_modifier }}">
                                 <div class="star-metric">{{ leaderboard_entry.metric }}</div>
-                                <div class="player">{{ leaderboard_entry.player }}</div>
+                                <div class="player">{{ leaderboard_entry.player|e }}</div>
                                 <div class="ts">{{ leaderboard_entry.ts }}</div>
                             </div>
                         {% else %}
                             <div class="sub-stat{{ metric_class_modifier }}">
                                 <div class="star-metric">{{ leaderboard_entry.metric }}</div>
-                                <div class="player">{{ leaderboard_entry.player }}</div>
+                                <div class="player">{{ leaderboard_entry.player|e }}</div>
                                 <div class="ts">{{ leaderboard_entry.ts }}</div>
                             </div>
                         {% endif %}
