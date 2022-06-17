@@ -38,7 +38,7 @@
                                             {{ team_player.individual_metric }}
                                         </div>
                                     {% endif %}
-                                    <div class="team player-team">{{ team_player.player }}</div>
+                                    <div class="team player-team">{{ team_player.player|e }}</div>
                                 {% endfor %}
                             </div>
                         {% else %}
@@ -52,7 +52,7 @@
                                             {{ team_player.individual_metric }}
                                         </div>
                                     {% endif %}
-                                    <div class="team player-team">{{ team_player.player }}</div>
+                                    <div class="team player-team">{{ team_player.player|e }}</div>
                                 {% endfor %}
                             </div>
                         {% endif %}
