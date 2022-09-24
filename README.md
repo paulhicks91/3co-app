@@ -11,7 +11,7 @@ There are 2 teams, each team has 1 queen and 3 workers. 3co, pronounced three-co
 is the term for when all 3 workers on a single team work towards getting an Eco victory. 
 If you see the 
 
-###Why use the ".app" Top-Level Domain (TLD)?
+### Why use the ".app" Top-Level Domain (TLD)?
 
 The ".app" TLD prioritizes security and was the first
 TLD that requires HTTPS for all connections. You can read more about this TLD in 
