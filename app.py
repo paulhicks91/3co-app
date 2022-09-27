@@ -17,7 +17,7 @@ Compress(app)
 
 # browsers that can be parsed from the UA, doesn't include crawlers
 BROWSERS = [
-    'camino', 'chrome', 'firefox', 'galeon', 'kmeleon', 'konqueror', 'links',
+    'camino', 'chrome', 'firefox', 'galeon', 'kmeleon', 'konqueror', 'links', 'edge',
     'lynx', 'msie', 'msn', 'netscape', 'opera', 'safari', 'seamonkey', 'webkit'
 ]
 
