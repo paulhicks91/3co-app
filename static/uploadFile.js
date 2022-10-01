@@ -1,11 +1,13 @@
 async function getFiles() {
     const file_input = document.getElementById("fileUpload");
+
     if ('files' in file_input && !!file_input.files.length) {
         if (!file_input.files.length) {
             return []
         }
         return file_input.files;
     }
+
     let txt = "SELECT ONE OR MORE FILES.";
     if (file_input.value !== "") {
         txt = "THE FILES PROPERTY IS NOT SUPPORTED BY YOUR BROWSER!<br>";
@@ -29,26 +31,42 @@ async function uploadFile() {
     }
 
     const profileDict = {};
-    for (let file of files.files) {
-        if (!('name' in file)) {
+
+    for (const file of files.files) {
+        if (!('name' in file) || file.name.endsWith('.zip') || file.name.endsWith('.json')) {
             continue;
         }
+
         if (file.name.endsWith('.zip')) {
             const entries = await unzipArchive(file);
+
             if (entries.length === 0) {
                 continue;
             }
-            // get first entry content as text by using a TextWriter
+
             let totalPlayers = 0;
             for (const entry in entries) {
                 filename = new TextDecoder().decode(entry.rawFilename);
 
                 if (filename.endsWith('.json')) {
-                    const players = await parseMatchJSON(entry);
+                    const parsedJSON = await parseMatchJSON(entry);
+
+                    if (!('playerMatchStats' in parsedJSON)) {
+                        continue;
+                    }
+
+                    const players = parsedJSON.playerMatchStats;
+
                     for (const player of players) {
+                        if (!(('playerId' in player) && ('nickname' in player))) {
+                            continue;
+                        }
+
                         if (profileRegex.test(player.playerId)) {
                             const profile = player.playerId + ' ' + player.nickname;
+
                             profileDict[profile] = profileDict[profile] ? profileDict[profile] + 1 : 1;
+
                             totalPlayers += 1;
                         }
                     }
@@ -80,7 +98,7 @@ async function uploadFile() {
         document.getElementById('players').innerHTML = playerTxt;
         document.getElementById("status").innerHTML = "";
     } else {
-        document.getElementById("status").innerHTML = "OOOF! IT LOOKS LIKE THAT WASN'T A PROPER FILE<br>PLEASE SELECT (A) NEW FILE(S) TO TRY AGAIN";
+        document.getElementById("status").innerHTML = "OOOF! IT LOOKS LIKE THAT WASN'T A PROPER FILE<br>PLEASE SELECT 1 OR MORE NEW FILE(S)";
         document.getElementById('fileLabel').innerHTML = "GIVE IT ANOTHER SHOT";
     }
 }
@@ -97,8 +115,18 @@ async function unzipArchive(blob) {
 }
 
 
-async function parseMatchJSON(file) {
-    const text = await file.getData(new zip.TextWriter());
+async function parseMatchJSON(file, is_zipped) {
+    let text = ""
+    if (is_zipped === true) {
+        text = await file.getData(new zip.TextWriter());
+    } else {
+        const reader = new FileReader();
+        reader.onload = function () {
+            text = reader.result;
+        };
+        reader.readAsText(file);
+    }
+
     const parsedJSON = JSON.parse(text);
 
     if ('playerMatchStats' in parsedJSON) {
@@ -106,4 +134,9 @@ async function parseMatchJSON(file) {
     }
 
     return [];
+}
+
+
+async function extractPlayers(playerStats) {
+
 }
