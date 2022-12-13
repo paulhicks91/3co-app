@@ -173,6 +173,28 @@ def lurk_active(lurk_key):
         return render_template('lurking.jinja2', lurk_key=lurk_key.upper())
 
 
+@app.route('/gs/steam/<steam_id>')
+def steam_to_gs(steam_id):
+    if not re.match('^[0-9]{17}$', steam_id):
+        return f'{steam_id} is not a valid Steam ID, must be a 17-digit int', 404
+    bigquery_client = create_bigquery_client()
+    gs_query = bigquery_client.query(
+        f"""
+        SELECT
+            gs_id
+        FROM `hot-chee-to.match_stats.gs_to_steam_id`
+        WHERE steam_id = '{steam_id}'
+        LIMIT 1;
+        """
+    )
+    query_result = gs_query.result()
+    for row in query_result:
+        gs_id = row.get('gs_id', None)
+        if gs_id:
+            return jsonify(gs_id)
+    return f'GameSparks ID for Steam ID {steam_id} not found', 404
+
+
 @app.route('/total-set-beans')
 def total_set_beans():
     bigquery_client = create_bigquery_client()
